@@ -1,0 +1,71 @@
+<app-navigation></app-navigation>
+{{userForm.value | json}}
+{{user | json}}
+{{username.className}}
+
+<div class="form">
+  <form #userForm="ngForm" class="text-center border border-light p-5" (ngSubmit)="onSubmit()" novalidate>
+
+    <p class="h4 mb-4">Sign up</p>
+
+    <div class="form-row mb-4">
+      <div class="col">
+        <!-- Username -->
+        <small class="text-danger" [class.d-none]="username.valid || username.untouched">Username is required</small>
+        <input #username="ngModel" name="username" required [(ngModel)]="user.username" type="text"
+          [class.is-invalid]="username.invalid && username.touched" class="form-control" placeholder="Username">
+      </div>
+    </div>
+
+    <!-- Password -->
+    <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</small>
+    <input #password="ngModel" [class.is-invalid]="password.invalid && password.touched" required
+      [(ngModel)]="user.password" name="password" type="password" class="form-control mb-4" placeholder="Password">
+    <!--Repeat Password -->
+    <small class="text-danger" [class.d-none]="rePassword.valid || rePassword.untouched">Repeat
+      password is required</small>
+    <input required #rePassword="ngModel" [class.is-invalid]="rePassword.invalid && rePassword.touched"
+      [(ngModel)]="user.rePassword" name="rePassword" type="password" class="form-control" placeholder="Repeat Password"
+      aria-describedby="defaultRegisterFormPasswordHelpBlock">
+
+
+    <small class="form-text text-muted mb-4">
+
+    </small>
+
+    <!-- Country -->
+    <small class="text-danger" [class.d-none]="!countryHasError || country.untouched">Please select country of
+      origin</small>
+    <select (blue)="validateCountry(country.value)" (change)="validateCountry(country.value)" #country="ngModel"
+      [class.is-invalid]="countryHasError && country.touched" [(ngModel)]="user.country" name="country" type="text"
+      class="form-control" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+      <option value="default">Country of origin</option>
+      <option *ngFor="let country of countries">
+        {{country}}
+      </option>
+    </select>
+
+
+
+    <!-- Sign up button -->
+    <button [disabled]="userForm.form.invalid || countryHasError" class="btn btn-info my-4 btn-lg" type="submit">Sign
+      in</button>
+
+    <!-- Social register -->
+    <!-- <p>or sign up with:</p> -->
+
+    <!-- <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a> -->
+
+    <hr>
+
+    <!-- Terms of service -->
+    <p>By clicking
+      <em>Sign up</em> you agree to our
+      <a href="" target="_blank">terms of service</a>
+
+  </form>
+
+</div>
