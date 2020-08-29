@@ -1,0 +1,6 @@
+<app-navigation></app-navigation>
+<div>
+  <ul *ngFor="let elephant of elephantData">
+    <app-elephant-item [elephant]="elephant" *ngIf="elephant.name"></app-elephant-item>
+  </ul>
+</div>

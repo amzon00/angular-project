@@ -1,0 +1,8 @@
+div {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  margin-top: 50px;
+  /* border: 2px solid red; */
+  justify-content: space-around;
+}
