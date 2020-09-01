@@ -1,4 +1,4 @@
-export class Elephant {
+export class IElephant {
   constructor(
     public affiliation: string,
     public dob: string,

@@ -1,1 +1,20 @@
 <app-navigation></app-navigation>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{elephant.image}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{elephant.name}}</h5>
+    <p class="card-text">{{elephant.note}}
+    </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Date of Birth: {{elephant.dob}}</li>
+    <li class="list-group-item">Death: {{elephant.dod}}</li>
+    <li class="list-group-item">Gender: {{elephant.sex}}</li>
+    <li class="list-group-item">Species: {{elephant.species}}</li>
+    <li class="list-group-item">Affiliation: {{elephant.affiliation}}</li>
+
+  </ul>
+  <div class="card-body">
+    <a href={{elephant.wikilink}} class="card-link">Wikilink</a>
+  </div>
+</div>

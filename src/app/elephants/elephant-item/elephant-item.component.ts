@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Elephant } from '../../../elephant';
+import { IElephant } from '../../../elephant';
 import { Router } from '@angular/router';
 import { EnrollmentService } from 'src/app/services/enrollment.service';
 
@@ -9,7 +9,7 @@ import { EnrollmentService } from 'src/app/services/enrollment.service';
   styleUrls: ['./elephant-item.component.css'],
 })
 export class ElephantItemComponent implements OnInit {
-  @Input() public elephant: Elephant;
+  @Input() public elephant: IElephant;
   constructor(
     private router: Router,
     private enrollmentService: EnrollmentService
@@ -17,7 +17,7 @@ export class ElephantItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSelect(elephant: Elephant) {
+  onSelect(elephant: IElephant) {
     this.router.navigate(['/elephants', elephant._id]);
     this.enrollmentService.sendData(elephant);
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Elephant } from '../../../elephant';
+import { IElephant } from '../../../elephant';
 import { EnrollmentService } from '../../services/enrollment.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { EnrollmentService } from '../../services/enrollment.service';
 })
 export class ElephantDetailsComponent implements OnInit {
   public elephantId;
-  elephant; // <----------------- undefined
+  elephant;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,7 +24,7 @@ export class ElephantDetailsComponent implements OnInit {
 
       this.enrollmentService.elephantData$.subscribe((d) => {
         console.log(d);
-        this.elephant = d; // <----- does this work ?
+        this.elephant = d;
       });
     });
   }

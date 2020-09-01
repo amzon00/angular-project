@@ -10,7 +10,7 @@ import { ElephantItemComponent } from './elephants/elephant-item/elephant-item.c
 
 const routes: Routes = [
   { path: 'home', component: MainComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'elephants', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'elephants', component: ElephantListComponent },

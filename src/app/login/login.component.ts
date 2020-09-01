@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/user';
+import { IUser } from 'src/user';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +7,7 @@ import { User } from 'src/user';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  user = new User('', '', '', '');
+  user = new IUser('', '', '', '');
 
   constructor() {}
 

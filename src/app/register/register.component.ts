@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../user';
+import { IUser } from '../../user';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +9,7 @@ import { User } from '../../user';
 export class RegisterComponent implements OnInit {
   countries = ['USA', 'UK', 'Sweden', 'Denmark', 'Spain'];
 
-  user = new User('', '', '', 'default');
+  user = new IUser('', '', '', 'default');
   countryHasError = true;
 
   constructor() {}
