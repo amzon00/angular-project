@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Elephant } from '../../../elephant';
 import { Router } from '@angular/router';
+import { EnrollmentService } from 'src/app/services/enrollment.service';
 
 @Component({
   selector: 'app-elephant-item',
@@ -9,14 +10,15 @@ import { Router } from '@angular/router';
 })
 export class ElephantItemComponent implements OnInit {
   @Input() public elephant: Elephant;
-  @Output() public e = new EventEmitter();
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private enrollmentService: EnrollmentService
+  ) {}
 
   ngOnInit(): void {}
 
-  onSelect(elephant) {
+  onSelect(elephant: Elephant) {
     this.router.navigate(['/elephants', elephant._id]);
-    this.e = elephant;
-    console.log(this.e);
+    this.enrollmentService.sendData(elephant);
   }
 }

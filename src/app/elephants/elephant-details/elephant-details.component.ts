@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Elephant } from '../../../elephant';
+import { EnrollmentService } from '../../services/enrollment.service';
 
 @Component({
   selector: 'app-elephant-details',
@@ -8,15 +9,23 @@ import { Elephant } from '../../../elephant';
   styleUrls: ['./elephant-details.component.css'],
 })
 export class ElephantDetailsComponent implements OnInit {
-  @Input() elephant: Elephant;
   public elephantId;
-  constructor(private route: ActivatedRoute) {}
+  elephant; // <----------------- undefined
+
+  constructor(
+    private route: ActivatedRoute,
+    private enrollmentService: EnrollmentService
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       let id = params.get('id');
       this.elephantId = id;
+
+      this.enrollmentService.elephantData$.subscribe((d) => {
+        console.log(d);
+        this.elephant = d; // <----- does this work ?
+      });
     });
-    console.log(this.elephant);
   }
 }
